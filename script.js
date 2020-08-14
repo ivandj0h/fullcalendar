@@ -8,17 +8,6 @@ $(document).ready(function () {
       var endTimeEventInfo = moment(event.end).format("HH:mm");
       var displayEventDate;
 
-      if (event.avatar.length > 1) {
-        element.find(".fc-content").css("padding-left", "55px");
-        element
-          .find(".fc-content")
-          .after(
-            $('<div class="fc-avatar-image"></div>').html(
-              "<img src='" + event.avatar + "' />"
-            )
-          );
-      }
-
       if (event.allDay == false) {
         displayEventDate = startTimeEventInfo + " - " + endTimeEventInfo;
       } else {
@@ -27,31 +16,32 @@ $(document).ready(function () {
 
       element.popover({
         title:
-          '<div class="popoverTitleCalendar" style="background-color:' +
-          event.backgroundColor +
-          "; color:" +
-          event.textColor +
-          '">' +
-          event.title +
-          "</div>",
-        content:
-          '<div class="popoverInfoCalendar">' +
-          "<p><strong>Calendar:</strong> " +
-          event.calendar +
-          "</p>" +
-          "<p><strong>Username:</strong> " +
-          event.username +
-          "</p>" +
-          "<p><strong>Event Type:</strong> " +
-          event.type +
-          "</p>" +
-          "<p><strong>Event Time:</strong> " +
-          displayEventDate +
-          "</p>" +
-          '<div class="popoverDescCalendar"><strong>Description:</strong> ' +
-          event.description +
-          "</div>" +
-          "</div>",
+          //   '<div class="popoverTitleCalendar" style="background-color:' +
+          //   event.backgroundColor +
+          //   "; color:" +
+          //   event.textColor +
+          //   '">' +
+          //   event.title +
+          //   "</div>",
+          // content:
+          //   '<div class="popoverInfoCalendar">' +
+          //   "<p><strong>Type Media:</strong> " +
+          //   event.media +
+          //   "</p>" +
+          //   (event.media == "Online")
+          //     ? +"<p><strong>Zoom Id:</strong> " + event.zoomid + "</p>"
+          //     : "Zoom Id: - " +
+          //       "<p><strong>Event Type:</strong> " +
+          //       event.type +
+          //       "</p>" +
+          //       "<p><strong>Event Time:</strong> " +
+          //       displayEventDate +
+          //       "</p>" +
+          //       '<div class="popoverDescCalendar"><strong>Description:</strong> ' +
+          //       event.description +
+          //       "</div>" +
+          //       "</div>",
+          `<div class="popoverTitleCalendar" style="background-color: ${event.backgroundColor} color: ${event.textColor}">`,
         delay: {
           show: "800",
           hide: "50",
@@ -62,18 +52,18 @@ $(document).ready(function () {
         container: "body",
       });
 
-      if (event.username == "Administrator") {
-        element.css("background-color", "#f4516c");
+      if (event.media == "Online") {
+        element.css("background-color", "#2b71bc");
       }
-      if (event.username == "User") {
-        element.css("background-color", "#1756ff");
+      if (event.media == "Offline") {
+        element.css("background-color", "#0c8209");
       }
 
-      var show_username,
+      var show_media,
         show_type = true,
         show_calendar = true;
 
-      var username = $("input:checkbox.filter:checked")
+      var media = $("input:checkbox.filter:checked")
         .map(function () {
           return $(this).val();
         })
@@ -81,7 +71,7 @@ $(document).ready(function () {
       var types = $("#type_filter").val();
       var calendars = $("#calendar_filter").val();
 
-      show_username = username.indexOf(event.username) >= 0;
+      show_media = media.indexOf(event.media) >= 0;
 
       if (types && types.length > 0) {
         if (types[0] == "all") {
@@ -99,7 +89,7 @@ $(document).ready(function () {
         }
       }
 
-      return show_username && show_type && show_calendar;
+      return show_media && show_type && show_calendar;
     },
     customButtons: {
       printButton: {
@@ -246,15 +236,15 @@ $(document).ready(function () {
       {
         _id: 1,
         title: "Meeting dengan KIM JONG UN",
-        avatar:
-          "https://assets.pikiran-rakyat.com/crop/253x0:2864x1632/x/photo/2020/06/08/4143951227.jpg",
+        media: "Online",
+        zoomid: "1234",
         description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
         start: "2020-08-13T09:30",
         end: "2020-08-13T10:00",
         type: "Appointment",
-        calendar: "Administrator",
+        calendar: "Online",
         className: "colorAppointment",
-        username: "Administrator",
+        username: "Online",
         backgroundColor: "#f4516c",
         textColor: "#ffffff",
         allDay: false,
@@ -262,13 +252,13 @@ $(document).ready(function () {
       {
         _id: 2,
         title: "Meeting dengan KIM JONG UN lagi",
-        avatar:
-          "https://assets.pikiran-rakyat.com/crop/253x0:2864x1632/x/photo/2020/06/08/4143951227.jpg",
+        media: "Offline",
+        zoomid: "1234",
         description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
         start: "2020-08-13T09:30",
         end: "2020-08-13T10:00",
         type: "Appointment",
-        calendar: "User",
+        calendar: "Offline",
         className: "colorAppointment",
         username: "User",
         backgroundColor: "#09223d",
@@ -339,47 +329,6 @@ $(document).ready(function () {
       } else {
         statusAllDay = false;
         var endDay = $("#ends-at").prop("disabled", false);
-      }
-    });
-
-    //GENERATE RAMDON ID - JUST FOR TEST - DELETE IT
-    var eventId = 1 + Math.floor(Math.random() * 1000);
-    //GENERATE RAMDON ID - JUST FOR TEST - DELETE IT
-
-    $("#save-event").unbind();
-    $("#save-event").on("click", function () {
-      var title = $("input#title").val();
-      var startDay = $("#starts-at").val();
-      if (!$(".allDayNewEvent").is(":checked")) {
-        var endDay = $("#ends-at").val();
-      }
-      var calendar = $("#calendar-type").val();
-      var description = $("#add-event-desc").val();
-      var type = eventType;
-      if (title) {
-        var eventData = {
-          _id: eventId,
-          title: title,
-          avatar:
-            "https://assets.pikiran-rakyat.com/crop/253x0:2864x1632/x/photo/2020/06/08/4143951227.jpg",
-          start: startDay,
-          end: endDay,
-          description: description,
-          type: type,
-          calendar: calendar,
-          className: colorEventyType,
-          username: "Caio Vitorelli",
-          backgroundColor: "#1756ff",
-          textColor: "#ffffff",
-          allDay: statusAllDay,
-        };
-        $("#calendar").fullCalendar("renderEvent", eventData, true);
-        $("#newEventModal").find("input, textarea").val("");
-        $("#newEventModal").find("input:checkbox").prop("checked", false);
-        $("#ends-at").prop("disabled", false);
-        $("#newEventModal").modal("hide");
-      } else {
-        alert("Title can't be blank. Please try again.");
       }
     });
   };
