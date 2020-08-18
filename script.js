@@ -16,32 +16,34 @@ $(document).ready(function () {
 
       element.popover({
         title:
-          //   '<div class="popoverTitleCalendar" style="background-color:' +
-          //   event.backgroundColor +
-          //   "; color:" +
-          //   event.textColor +
-          //   '">' +
-          //   event.title +
-          //   "</div>",
-          // content:
-          //   '<div class="popoverInfoCalendar">' +
-          //   "<p><strong>Type Media:</strong> " +
-          //   event.media +
-          //   "</p>" +
-          //   (event.media == "Online")
-          //     ? +"<p><strong>Zoom Id:</strong> " + event.zoomid + "</p>"
-          //     : "Zoom Id: - " +
-          //       "<p><strong>Event Type:</strong> " +
-          //       event.type +
-          //       "</p>" +
-          //       "<p><strong>Event Time:</strong> " +
-          //       displayEventDate +
-          //       "</p>" +
-          //       '<div class="popoverDescCalendar"><strong>Description:</strong> ' +
-          //       event.description +
-          //       "</div>" +
-          //       "</div>",
-          `<div class="popoverTitleCalendar" style="background-color: ${event.backgroundColor} color: ${event.textColor}">`,
+          '<div class="popoverTitleCalendar" style="background-color:' +
+          event.backgroundColor +
+          "; color:" +
+          event.textColor +
+          '">' +
+          event.title +
+          "</div>",
+        content:
+          '<div class="popoverInfoCalendar">' +
+          "<p><strong>ZoomId:</strong> " +
+          event.zoomid +
+          "</p>" +
+          "<p><strong>Calendar:</strong> " +
+          event.calendar +
+          "</p>" +
+          "<p><strong>Username:</strong> " +
+          event.username +
+          "</p>" +
+          "<p><strong>Event Type:</strong> " +
+          event.type +
+          "</p>" +
+          "<p><strong>Event Time:</strong> " +
+          displayEventDate +
+          "</p>" +
+          '<div class="popoverDescCalendar"><strong>Description:</strong> ' +
+          event.description +
+          "</div>" +
+          "</div>",
         delay: {
           show: "800",
           hide: "50",
@@ -244,7 +246,7 @@ $(document).ready(function () {
         type: "Appointment",
         calendar: "Online",
         className: "colorAppointment",
-        username: "Online",
+        username: "Administrator",
         backgroundColor: "#f4516c",
         textColor: "#ffffff",
         allDay: false,
@@ -260,7 +262,23 @@ $(document).ready(function () {
         type: "Appointment",
         calendar: "Offline",
         className: "colorAppointment",
-        username: "User",
+        username: "Administrator",
+        backgroundColor: "#09223d",
+        textColor: "#ffffff",
+        allDay: false,
+      },
+      {
+        _id: 3,
+        title: "ini adalah Meeting ketiga",
+        media: "Online",
+        zoomid: "1234",
+        description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+        start: "2020-08-18T11:30",
+        end: "2020-08-18T12:00",
+        type: "Appointment",
+        calendar: "Online",
+        className: "colorAppointment",
+        username: "Administrator",
         backgroundColor: "#09223d",
         textColor: "#ffffff",
         allDay: false,
