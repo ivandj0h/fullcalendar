@@ -387,6 +387,7 @@ $(document).ready(function () {
     $("#edit-calendar-type").val(event.calendar);
     $("#edit-event-desc").val(event.description);
     $(".eventName").text(event.title);
+    $(".eventDate").text(event.start.format("HH:mm"));
     $("#editEventModal").modal("show");
     $("#updateEvent").unbind();
     $("#updateEvent").on("click", function () {

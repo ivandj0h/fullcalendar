@@ -163,70 +163,16 @@
         <div id="wrapper">
             <div id="loading"></div>
             <div class="print-visible" id="calendar"></div>
-        </div>
-    
+        </div>      
       
-      <!-- ADD EVENT MODAL -->
-      
-      <div class="modal fade" tabindex="-1" role="dialog" id="newEventModal" data-backdrop="static">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Create new <span class="eventType"></span></h4>
-            </div>
-            <div class="modal-body">
-                      
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label class="col-xs-4" for="title">Event title</label>
-                        <input class="inputModal" type="text" name="title" id="title" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label class="col-xs-4" for="starts-at">Starts at</label>
-                        <input class="inputModal" type="text" name="starts_at" id="starts-at" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label class="col-xs-4" for="ends-at">Ends at</label>
-                        <input class="inputModal" type="text" name="ends_at" id="ends-at" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label class="col-xs-4" for="calendar-type">Calendar</label>
-                        <select class="inputModal" type="text" name="calendar-type" id="calendar-type">
-                          <option value="Sales">Sales</option>
-                          <option value="Lettings">Lettings</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label class="col-xs-4" for="add-event-desc">Description</label>
-                        <textarea rows="4" cols="50" class="inputModal" name="add-event-desc" id="add-event-desc"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-      
-      
-      <!-- EDIT EVENT MODAL -->
+      <!-- DETAIL EVENT MODAL -->
       
       <div class="modal fade" tabindex="-1" role="dialog" id="editEventModal" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Edit <span class="eventName"></span></h4>
+              <h4 class="modal-title">Details Meeting Pukul <span class="eventDate"></span></h4>
             </div>
             <div class="modal-body">
               
@@ -236,23 +182,22 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <label class="col-xs-4" for="title">Event title</label>
-                        <input class="inputModal" type="text" name="editTitle" id="editTitle" />
+                        <input class="inputModal" disabled id="editTitle" />
                     </div>
                 </div>
-          
                 <div class="row">
                     <div class="col-xs-12">
                         <label class="col-xs-4" for="starts-at">Starts at</label>
-                        <input class="inputModal" type="text" name="editStartDate" id="editStartDate" />
+                        <input class="inputModal" disabled id="editStartDate" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
                         <label class="col-xs-4" for="ends-at">Ends at</label>
-                        <input class="inputModal" type="text" name="editEndDate" id="editEndDate" />
+                        <input class="inputModal" disabled id="editEndDate" />
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-xs-12">
                         <label class="col-xs-4" for="edit-calendar-type">Calendar</label>
                         <select class="inputModal" type="text" name="edit-calendar-type" id="edit-calendar-type">
@@ -260,11 +205,11 @@
                           <option value="Lettings">Lettings</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col-xs-12">
                         <label class="col-xs-4" for="edit-event-desc">Description</label>
-                        <textarea rows="4" cols="50" class="inputModal" name="edit-event-desc" id="edit-event-desc"></textarea>
+                        <textarea rows="4" cols="50" class="inputModal" disabled id="edit-event-desc"></textarea>
                     </div>
                 </div>
             </div>
