@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Filter Users Fullcalendar</title>
+  <title>e-rapat - Fullcalendar</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
@@ -11,17 +11,17 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.42/css/bootstrap-datetimepicker.min.css'><link rel="stylesheet" href="./style.css">
 
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css' rel='stylesheet' media='print' />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="row">
   
 
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-
-<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css' rel='stylesheet' media='print' />
-
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 <div id="contextMenu" class="dropdown clearfix">
@@ -30,7 +30,7 @@
 
 <div class="panel panel-default hidden-print">
   <div class="panel-heading">
-    <h3 class="panel-title">Calendar Configuration</h3>
+    <h3 class="panel-title">PengaturaN kalender</h3>
   </div>
   <div class="panel-body">
 
@@ -38,17 +38,17 @@
 <div class="form-group">
   <label for="calendar_view">View Mode</label>
   <select class="form-control" id="calendar_view">
-      <option value="month">Month</option>
-      <option value="agendaWeek">Week</option>
-      <option value="agendaDay">Day</option>
-      <option value="listWeek">Event List</option>
+      <option value="month">Bulan</option>
+      <option value="agendaWeek">Minggu</option>
+      <option value="agendaDay">Hari</option>
+      <option value="listWeek">List</option>
     </select>
 </div>
 </div>
 
 <div class="col-lg-4">
 <div class="form-group">
-  <label for="calendar_start_time">Start Time Agenda:</label>
+  <label for="calendar_start_time">Jam Awal Rapat :</label>
   <select class="form-control" id="calendar_start_time">
     <option value="01:00:00">01:00 AM</option>
     <option value="02:00:00">02:00 AM</option>
@@ -79,7 +79,7 @@
 
 <div class="col-lg-4">
 <div class="form-group">
-  <label for="calendar_end_time">End Time Agenda:</label>
+  <label for="calendar_end_time">Jam Akhir Rapat :</label>
   <select class="form-control" id="calendar_end_time">
     <option value="01:00:00">01:00 AM</option>
     <option value="02:00:00">02:00 AM</option>
@@ -111,7 +111,7 @@
 <div class="col-lg-2">
     
 <div class="form-group">
-  <label for="ShowWeekends">Calendar Weekends</label>
+  <label for="ShowWeekends">Munculkan/Sembunyikan Akhir Pekan</label>
   <div class="input-group">
   <input class='showHideWeekend' type="checkbox" checked>
     </div>
@@ -227,6 +227,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale-all.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/id.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js'></script><script  src="./script.js"></script>
 

@@ -2,7 +2,7 @@ var newEvent;
 var editEvent;
 
 $(document).ready(function () {
-  var calendar = $("#calendar").fullCalendar({
+  $("#calendar").fullCalendar({
     eventRender: function (event, element, view) {
       var startTimeEventInfo = moment(event.start).format("HH:mm");
       var endTimeEventInfo = moment(event.end).format("HH:mm");
@@ -25,22 +25,25 @@ $(document).ready(function () {
           "</div>",
         content:
           '<div class="popoverInfoCalendar">' +
-          "<p><strong>ZoomId:</strong> " +
-          event.zoomid +
+          "<p><strong>Nama Bagian :</strong> " +
+          event.title +
           "</p>" +
-          "<p><strong>Calendar:</strong> " +
+          "<p><strong>Media Rapat :</strong> " +
           event.calendar +
           "</p>" +
-          "<p><strong>Username:</strong> " +
-          event.username +
+          "<p><strong>Zoom ID :</strong> " +
+          event.zoomid +
           "</p>" +
-          "<p><strong>Event Type:</strong> " +
-          event.type +
+          "<p><strong>Tempat Rapat :</strong> " +
+          event.location +
           "</p>" +
+          // "<p><strong>Event Type:</strong> " +
+          // event.type +
+          // "</p>" +
           "<p><strong>Event Time:</strong> " +
           displayEventDate +
           "</p>" +
-          '<div class="popoverDescCalendar"><strong>Description:</strong> ' +
+          '<div class="popoverDescCalendar"><strong>Agenda Rapat :</strong> ' +
           event.description +
           "</div>" +
           "</div>",
@@ -128,6 +131,7 @@ $(document).ready(function () {
     },
     eventAfterAllRender: function (view) {
       if (view.name == "month") {
+        $(".fc-time").hide();
         $(".fc-content").css("height", "auto");
       }
     },
@@ -207,7 +211,7 @@ $(document).ready(function () {
     eventClick: function (event, jsEvent, view) {
       editEvent(event);
     },
-    locale: "en-ID",
+    locale: "ID",
     timezone: "local",
     nextDayThreshold: "09:00:00",
     allDaySlot: true,
@@ -237,49 +241,37 @@ $(document).ready(function () {
     events: [
       {
         _id: 1,
-        title: "Meeting dengan KIM JONG UN",
+        title: "Bagian Keuangan dan Perlengkapan",
         media: "Online",
         zoomid: "1234",
         description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
-        start: "2020-08-13T09:30",
-        end: "2020-08-13T10:00",
+        sub_department_name: "Bagian Keuangan dan Perlengkapan",
+        start: "2020-08-06T09:30",
+        end: "2020-08-06T10:00",
         type: "Appointment",
         calendar: "Online",
         className: "colorAppointment",
         username: "Administrator",
+        location: "Ruangan Rapat Garuda",
         backgroundColor: "#f4516c",
         textColor: "#ffffff",
         allDay: false,
       },
       {
         _id: 2,
-        title: "Meeting dengan KIM JONG UN lagi",
+        title: "Bidang Kepegawaian",
         media: "Offline",
         zoomid: "1234",
         description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
-        start: "2020-08-13T09:30",
-        end: "2020-08-13T10:00",
-        type: "Appointment",
-        calendar: "Offline",
-        className: "colorAppointment",
-        username: "Administrator",
-        backgroundColor: "#09223d",
-        textColor: "#ffffff",
-        allDay: false,
-      },
-      {
-        _id: 3,
-        title: "ini adalah Meeting ketiga",
-        media: "Online",
-        zoomid: "1234",
-        description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
-        start: "2020-08-18T11:30",
-        end: "2020-08-18T12:00",
+        sub_department_name: "Bidang Kepegawaian",
+        start: "2020-08-06T14:30",
+        end: "2020-08-06T15:30",
         type: "Appointment",
         calendar: "Online",
         className: "colorAppointment",
         username: "Administrator",
-        backgroundColor: "#09223d",
+        location: "Ruangan Rapat Garuda",
+        backgroundColor: "#245808",
         textColor: "#ffffff",
         allDay: false,
       },
