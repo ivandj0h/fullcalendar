@@ -21,8 +21,8 @@ $(document).ready(function () {
             event.backgroundColor +
             "; color:" +
             event.textColor +
-            '">' +
-            event.title +
+            '">Media Rapat : ' +
+            event.calendar +
             "</div>",
           content:
             '<div class="popoverInfoCalendar">' +
@@ -65,8 +65,8 @@ $(document).ready(function () {
             event.backgroundColor +
             "; color:" +
             event.textColor +
-            '">' +
-            event.title +
+            '">Media Rapat : ' +
+            event.calendar +
             "</div>",
           content:
             '<div class="popoverInfoCalendar">' +
@@ -223,9 +223,9 @@ $(document).ready(function () {
 
       var HTMLContent =
         '<ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">' +
-        '<li style="padding:15px; color:red"> Sorry, You Can\'t Create Any Meeting Here!</li>' +
+        '<li style="padding:15px; color:red"> Maaf, Anda Tidak Diperbolehkan untuk Membuat Rapat Di area ini!</li>' +
         '<li class="divider"></li>' +
-        '<li><a tabindex="-1" href="#">Close</a></li>' +
+        '<li><a tabindex="-1" href="#">Tutup</a></li>' +
         "</ul>";
 
       $(".fc-body").unbind("click");
@@ -294,12 +294,12 @@ $(document).ready(function () {
         members_name: "Nama Pimpinan Rapat",
         agenda: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
         sub_department_name: "Bagian Keuangan dan Perlengkapan",
-        // start: "2020-08-06T09:30",
-        // end: "2020-08-06T10:00",
-        start: "14:30",
-        start: "2020-08-06",
-        end: "15:30",
-        end: "2020-08-06",
+        start: "2020-08-06T09:30",
+        end: "2020-08-06T10:00",
+        // start: "14:30",
+        // start: "2020-08-06",
+        // end: "15:30",
+        // end: "2020-08-06",
         type: "2",
         calendar: "Online",
         className: "colorAppointment",
@@ -319,12 +319,12 @@ $(document).ready(function () {
         agenda:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         sub_department_name: "Bidang Kepegawaian",
-        // start: "2020-08-06T14:30",
-        start: "14:30",
-        start: "2020-08-06",
-        // end: "2020-08-06T15:30",
-        end: "15:30",
-        end: "2020-08-06",
+        start: "2020-08-06T14:30",
+        // start: "14:30",
+        // start: "2020-08-06",
+        end: "2020-08-06T15:30",
+        // end: "15:30",
+        // end: "2020-08-06",
         type: "4",
         calendar: "Offline",
         className: "colorAppointment",
@@ -434,11 +434,13 @@ $(document).ready(function () {
     });
 
     $("#editTitle").val(event.title);
-    $("#editStartDate").val(event.start.format("ddd DD MMM YYYY HH:mm"));
+    $("#editStartDate").val(event.start.format("dd MMM YYYY HH:mm"));
     $("#edit-calendar-type").val(event.calendar);
     $("#edit-event-desc").val(event.description);
     $(".eventName").text(event.title);
-    $(".eventDate").text(event.start.format("HH:mm"));
+    $(".eventDate").text(event.start.format("DD-MM-YYYY"));
+    $(".eventHourStart").text(event.start.format("HH:mm"));
+    $(".eventHourEnd").text(event.end.format("HH:mm"));
     $("#editEventModal").modal("show");
     $("#updateEvent").unbind();
     $("#updateEvent").on("click", function () {
