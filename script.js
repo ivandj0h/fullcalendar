@@ -15,7 +15,6 @@ $(document).ready(function () {
       }
 
       if (event.calendar == "Online") {
-        console.log(event.calendar);
         element.popover({
           title:
             '<div class="popoverTitleCalendar" style="background-color:' +
@@ -36,11 +35,17 @@ $(document).ready(function () {
             "<p><strong>Zoom ID :</strong> " +
             event.zoomid +
             "</p>" +
+            "<p><strong>Nama Pembicara :</strong> " +
+            event.speakers_name +
+            "</p>" +
+            "<p><strong>Nama Pimpinan Rapat :</strong> " +
+            event.members_name +
+            "</p>" +
             "<p><strong>Waktu Rapat :</strong> " +
             displayEventDate +
             "</p>" +
             '<div class="popoverDescCalendar"><strong>Agenda Rapat :</strong> ' +
-            event.description +
+            event.agenda +
             "</div>" +
             "</div>",
           delay: {
@@ -53,7 +58,7 @@ $(document).ready(function () {
           container: "body",
         });
       } else {
-        console.log(event.calendar);
+        // console.log(event.calendar);
         element.popover({
           title:
             '<div class="popoverTitleCalendar" style="background-color:' +
@@ -74,14 +79,17 @@ $(document).ready(function () {
             "<p><strong>Tempat Rapat :</strong> " +
             event.location +
             "</p>" +
-            // "<p><strong>Event Type:</strong> " +
-            // event.type +
-            // "</p>" +
+            "<p><strong>Nama Pembicara :</strong> " +
+            event.speakers_name +
+            "</p>" +
+            "<p><strong>Nama Pimpinan Rapat :</strong> " +
+            event.members_name +
+            "</p>" +
             "<p><strong>Waktu Rapat :</strong> " +
             displayEventDate +
             "</p>" +
             '<div class="popoverDescCalendar"><strong>Agenda Rapat :</strong> ' +
-            event.description +
+            event.agenda +
             "</div>" +
             "</div>",
           delay: {
@@ -281,16 +289,22 @@ $(document).ready(function () {
         _id: 1,
         title: "Bagian Keuangan dan Perlengkapan",
         media: "Online",
-        zoomid: "1234",
-        description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+        zoomid: "7177717448",
+        speakers_name: "Nama Pembicara",
+        members_name: "Nama Pimpinan Rapat",
+        agenda: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
         sub_department_name: "Bagian Keuangan dan Perlengkapan",
-        start: "2020-08-06T09:30",
-        end: "2020-08-06T10:00",
-        type: "Appointment",
+        // start: "2020-08-06T09:30",
+        // end: "2020-08-06T10:00",
+        start: "14:30",
+        start: "2020-08-06",
+        end: "15:30",
+        end: "2020-08-06",
+        type: "2",
         calendar: "Online",
         className: "colorAppointment",
         username: "Administrator",
-        location: "Ruangan Rapat Garuda",
+        location: "-",
         backgroundColor: "#28a745",
         textColor: "#ffffff",
         allDay: false,
@@ -299,12 +313,19 @@ $(document).ready(function () {
         _id: 2,
         title: "Bidang Kepegawaian",
         media: "Offline",
-        zoomid: "1234",
-        description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+        zoomid: "-",
+        speakers_name: "Nama Pembicara",
+        members_name: "Nama Pimpinan Rapat",
+        agenda:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         sub_department_name: "Bidang Kepegawaian",
-        start: "2020-08-06T14:30",
-        end: "2020-08-06T15:30",
-        type: "Appointment",
+        // start: "2020-08-06T14:30",
+        start: "14:30",
+        start: "2020-08-06",
+        // end: "2020-08-06T15:30",
+        end: "15:30",
+        end: "2020-08-06",
+        type: "4",
         calendar: "Offline",
         className: "colorAppointment",
         username: "Administrator",
@@ -346,17 +367,17 @@ $(document).ready(function () {
   newEvent = function (start, end, eventType) {
     var colorEventyType;
 
-    if (eventType == "Appointment") {
+    if (eventType == "2") {
       colorEventyType = "colorAppointment";
-    } else if (eventType == "Check-in") {
+    } else if (eventType == "3") {
       colorEventyType = "colorCheck-in";
-    } else if (eventType == "Checkout") {
+    } else if (eventType == "4") {
       colorEventyType = "colorCheckout";
-    } else if (eventType == "Inventory") {
+    } else if (eventType == "5") {
       colorEventyType = "colorInventory";
-    } else if (eventType == "Valuation") {
+    } else if (eventType == "6") {
       colorEventyType = "colorValuation";
-    } else if (eventType == "Viewing") {
+    } else if (eventType == "7") {
       colorEventyType = "colorViewing";
     }
 

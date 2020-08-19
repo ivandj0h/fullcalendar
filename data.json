@@ -1,0 +1,21 @@
+{
+  "_id": 1,
+  "title": "Bagian Keuangan dan Perlengkapan",
+  "media": "Online",
+  "zoomid": "7177717448",
+  "speakers_name": "Nama Pembicara",
+  "members_name": "Nama Pimpinan Rapat",
+  "agenda": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+  "sub_department_name": "Bagian Keuangan dan Perlengkapan",
+  "start": "2020-08-06",
+  "end": "15:30",
+  "end": "2020-08-06",
+  "type": "2",
+  "calendar": "Online",
+  "className": "colorAppointment",
+  "username": "Administrator",
+  "location": "-",
+  "backgroundColor": "#28a745",
+  "textColor": "#ffffff",
+  "allDay": false
+}
