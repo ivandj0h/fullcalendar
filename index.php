@@ -30,7 +30,7 @@
 
 <div class="panel panel-default hidden-print">
   <div class="panel-heading">
-    <h3 class="panel-title">PengaturaN kalender</h3>
+    <h3 class="panel-title">Pengaturan Tampilan kalender</h3>
   </div>
   <div class="panel-body">
 
