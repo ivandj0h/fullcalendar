@@ -14,54 +14,92 @@ $(document).ready(function () {
         displayEventDate = "All Day";
       }
 
-      element.popover({
-        title:
-          '<div class="popoverTitleCalendar" style="background-color:' +
-          event.backgroundColor +
-          "; color:" +
-          event.textColor +
-          '">' +
-          event.title +
-          "</div>",
-        content:
-          '<div class="popoverInfoCalendar">' +
-          "<p><strong>Nama Bagian :</strong> " +
-          event.title +
-          "</p>" +
-          "<p><strong>Media Rapat :</strong> " +
-          event.calendar +
-          "</p>" +
-          "<p><strong>Zoom ID :</strong> " +
-          event.zoomid +
-          "</p>" +
-          "<p><strong>Tempat Rapat :</strong> " +
-          event.location +
-          "</p>" +
-          // "<p><strong>Event Type:</strong> " +
-          // event.type +
-          // "</p>" +
-          "<p><strong>Event Time:</strong> " +
-          displayEventDate +
-          "</p>" +
-          '<div class="popoverDescCalendar"><strong>Agenda Rapat :</strong> ' +
-          event.description +
-          "</div>" +
-          "</div>",
-        delay: {
-          show: "800",
-          hide: "50",
-        },
-        trigger: "hover",
-        placement: "top",
-        html: true,
-        container: "body",
-      });
+      if (event.calendar == "Online") {
+        console.log(event.calendar);
+        element.popover({
+          title:
+            '<div class="popoverTitleCalendar" style="background-color:' +
+            event.backgroundColor +
+            "; color:" +
+            event.textColor +
+            '">' +
+            event.title +
+            "</div>",
+          content:
+            '<div class="popoverInfoCalendar">' +
+            "<p><strong>Nama Bagian :</strong> " +
+            event.title +
+            "</p>" +
+            "<p><strong>Media Rapat :</strong> " +
+            event.calendar +
+            "</p>" +
+            "<p><strong>Zoom ID :</strong> " +
+            event.zoomid +
+            "</p>" +
+            "<p><strong>Waktu Rapat :</strong> " +
+            displayEventDate +
+            "</p>" +
+            '<div class="popoverDescCalendar"><strong>Agenda Rapat :</strong> ' +
+            event.description +
+            "</div>" +
+            "</div>",
+          delay: {
+            show: "800",
+            hide: "50",
+          },
+          trigger: "hover",
+          placement: "top",
+          html: true,
+          container: "body",
+        });
+      } else {
+        console.log(event.calendar);
+        element.popover({
+          title:
+            '<div class="popoverTitleCalendar" style="background-color:' +
+            event.backgroundColor +
+            "; color:" +
+            event.textColor +
+            '">' +
+            event.title +
+            "</div>",
+          content:
+            '<div class="popoverInfoCalendar">' +
+            "<p><strong>Nama Bagian :</strong> " +
+            event.title +
+            "</p>" +
+            "<p><strong>Media Rapat :</strong> " +
+            event.calendar +
+            "</p>" +
+            "<p><strong>Tempat Rapat :</strong> " +
+            event.location +
+            "</p>" +
+            // "<p><strong>Event Type:</strong> " +
+            // event.type +
+            // "</p>" +
+            "<p><strong>Waktu Rapat :</strong> " +
+            displayEventDate +
+            "</p>" +
+            '<div class="popoverDescCalendar"><strong>Agenda Rapat :</strong> ' +
+            event.description +
+            "</div>" +
+            "</div>",
+          delay: {
+            show: "800",
+            hide: "50",
+          },
+          trigger: "hover",
+          placement: "top",
+          html: true,
+          container: "body",
+        });
+      }
 
       if (event.media == "Online") {
-        element.css("background-color", "#2b71bc");
+        element.css("background-color", "#28a745");
       }
       if (event.media == "Offline") {
-        element.css("background-color", "#0c8209");
+        element.css("background-color", "#dc3545");
       }
 
       var show_media,
@@ -253,7 +291,7 @@ $(document).ready(function () {
         className: "colorAppointment",
         username: "Administrator",
         location: "Ruangan Rapat Garuda",
-        backgroundColor: "#f4516c",
+        backgroundColor: "#28a745",
         textColor: "#ffffff",
         allDay: false,
       },
@@ -267,11 +305,11 @@ $(document).ready(function () {
         start: "2020-08-06T14:30",
         end: "2020-08-06T15:30",
         type: "Appointment",
-        calendar: "Online",
+        calendar: "Offline",
         className: "colorAppointment",
         username: "Administrator",
         location: "Ruangan Rapat Garuda",
-        backgroundColor: "#245808",
+        backgroundColor: "#dc3545",
         textColor: "#ffffff",
         allDay: false,
       },

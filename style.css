@@ -203,7 +203,7 @@ body {
   left: -1px;
 }
 .colorCheck-in :before {
-  background-color: #ff4747;
+  background-color: #28a745;
   border-right: 1px solid rgba(255, 255, 255, 0.6);
   display: block;
   content: " ";
